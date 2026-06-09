@@ -1,9 +1,12 @@
 package com.generation.projeto_integrador.controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,22 +14,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.projeto_integrador.model.Produto;
+import com.generation.projeto_integrador.repository.CategoriaRepository;
 import com.generation.projeto_integrador.repository.ProdutoRepository;
 
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/produtos")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProdutoController {
 
-    private final ProdutoRepository produtoRepository;
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
-    public ProdutoController(ProdutoRepository produtoRepository) {
-        this.produtoRepository = produtoRepository;
-    }
+    @Autowired
+    private CategoriaRepository categoriaRepository;
 
     @GetMapping
     public ResponseEntity<List<Produto>> getAll() {
@@ -36,39 +43,57 @@ public class ProdutoController {
     @GetMapping("/{id}")
     public ResponseEntity<Produto> getById(@PathVariable Long id) {
         return produtoRepository.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .map(resposta -> ResponseEntity.ok(resposta))
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
-    @GetMapping("/categoria/{categoria}")
-    public ResponseEntity<List<Produto>> getByCategoria(@PathVariable String categoria) {
-        List<Produto> produtos = produtoRepository.findAllByCategoriaContainingIgnoreCase(categoria);
-        if (produtos.isEmpty())
-            return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(produtos);
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<List<Produto>> getByNome(@PathVariable String nome) {
+        return ResponseEntity.ok(produtoRepository.findAllByNomeContainingIgnoreCase(nome));
     }
 
+    // Método GET atualizado para buscar pela descrição da Categoria
+    @GetMapping("/categoria/{descricao}")
+    public ResponseEntity<List<Produto>> getByCategoria(@PathVariable String descricao) {
+        return ResponseEntity.ok(produtoRepository.findAllByCategoriaDescricaoContainingIgnoreCase(descricao));
+    }
+
+    // Método POST com validação de Categoria
     @PostMapping
     public ResponseEntity<Produto> post(@Valid @RequestBody Produto produto) {
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(produtoRepository.save(produto));
+        if (categoriaRepository.existsById(produto.getCategoria().getId())) {
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(produtoRepository.save(produto));
+        }
+            
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!", null);
     }
 
+    // Método PUT com validação de Produto e de Categoria
     @PutMapping
     public ResponseEntity<Produto> put(@Valid @RequestBody Produto produto) {
-        return produtoRepository.findById(produto.getId())
-                .map(resposta -> ResponseEntity.ok(produtoRepository.save(produto)))
-                .orElse(ResponseEntity.notFound().build());
+        if (produtoRepository.existsById(produto.getId())) {
+            
+            if (categoriaRepository.existsById(produto.getCategoria().getId())) {
+                return ResponseEntity.status(HttpStatus.OK)
+                        .body(produtoRepository.save(produto));
+            }
+            
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!", null);
+        }
+        
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        return produtoRepository.findById(id)
-                .map(produto -> {
-                    produtoRepository.delete(produto);
-                    return ResponseEntity.noContent().<Void>build();
-                })
-                .orElse(ResponseEntity.notFound().build());
-    }
+    public void delete(@PathVariable Long id) {
+        Optional<Produto> produto = produtoRepository.findById(id);
 
+        if (produto.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+            
+        produtoRepository.deleteById(id);
+    }
 }
