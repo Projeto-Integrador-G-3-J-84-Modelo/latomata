@@ -375,7 +375,3 @@ Pela IDE ou terminal:
 
 ### 🥗 Latomata © 2026  
 #### Tecnologia e organização para uma alimentação mais saudável.
-
-
-What did you learn while building this project? What challenges did you face and how did you overcome them?
-
