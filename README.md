@@ -376,15 +376,6 @@ Pela IDE ou terminal:
 ### 🥗 Latomata © 2026  
 #### Tecnologia e organização para uma alimentação mais saudável.
 
-</div>## Color Reference
-
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Example Color | ![#0a192f](https://dummyimage.com/10/0a192f/white?text=+) #0a192f |
-| Example Color | ![#f8f8f8](https://dummyimage.com/10/f8f8f8/white?text=+) #f8f8f8 |
-| Example Color | ![#00b48a](https://dummyimage.com/10/00b48a/white?text=+) #00b48a |
-| Example Color | ![#00d1a0](https://dummyimage.com/10/00d1a0/white?text=+)) #00d1a0 |
-
 
 What did you learn while building this project? What challenges did you face and how did you overcome them?
 
