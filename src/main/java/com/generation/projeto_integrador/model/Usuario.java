@@ -5,9 +5,9 @@ import java.util.Objects;
 
 import org.springframework.lang.NonNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,6 +32,7 @@ public class Usuario {
 	@Size(min = 3, max = 100, message = "O Atributo nome deve ter no mínimo 3 caracteres e no máximo 100" )
 	private String nome;
 
+	@Schema(example = "email@email.com.br")
 	@NotBlank(message = "O Atributo Email é Obrigatório!")
 	@Email(message = "O Atributo Email deve ser um email válido!")
 	private String email;

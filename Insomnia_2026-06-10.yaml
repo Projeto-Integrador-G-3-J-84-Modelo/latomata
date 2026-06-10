@@ -15,12 +15,12 @@ collection:
       sortKey: -1779920812195
       description: ""
     children:
-      - url: http://localhost:8080/categorias
+      - url: http://localhost:8080/categorias/cadastrar
         name: Cadastrar Categoria
         meta:
           id: req_b7704541ddc54a428e84b38edad6bdff
           created: 1779922403173
-          modified: 1781102449347
+          modified: 1781112300478
           isPrivate: false
           description: ""
           sortKey: -1779925677470
@@ -40,7 +40,7 @@ collection:
             disabled: false
           - name: Authorization
             value: Bearer
-              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsImlhdCI6MTc4MTEwMjQwOCwiZXhwIjoxNzgxMTA2MDA4fQ.jI_hbt0OBchArRdNBDTkYQO6FsNkFXeQjkosoACK1C_RNwrw5oZslHMv73Aybgyf
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsImlhdCI6MTc4MTExMjI2NiwiZXhwIjoxNzgxMTE1ODY2fQ.sPiyE9VysmEo2VpeWAEs3R9zi6d9eYlPd4qDA0wnH3GwXKVekShA5xUFYn7zwS-x
             description: ""
             disabled: false
         settings:
@@ -233,12 +233,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/produtos
+      - url: http://localhost:8080/produtos/cadastrar
         name: Cadastrar Produto
         meta:
           id: req_c34fc609510e4b7ba9ed75b93e9e472c
           created: 1780929744363
-          modified: 1781102473965
+          modified: 1781112339282
           isPrivate: false
           description: ""
           sortKey: -1779925677470
@@ -255,10 +255,7 @@ collection:
               "saudavel": true,
               "categoria": {
                 "id": 1
-              },
-              "usuario": {
-                "id": 1
-              }
+            	}
             }
         headers:
           - name: Content-Type
@@ -269,7 +266,7 @@ collection:
             disabled: false
           - name: Authorization
             value: Bearer
-              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsImlhdCI6MTc4MTEwMjQwOCwiZXhwIjoxNzgxMTA2MDA4fQ.jI_hbt0OBchArRdNBDTkYQO6FsNkFXeQjkosoACK1C_RNwrw5oZslHMv73Aybgyf
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsImlhdCI6MTc4MTExMjI2NiwiZXhwIjoxNzgxMTE1ODY2fQ.sPiyE9VysmEo2VpeWAEs3R9zi6d9eYlPd4qDA0wnH3GwXKVekShA5xUFYn7zwS-x
             description: ""
             disabled: false
         settings:
@@ -383,14 +380,14 @@ collection:
             store: true
           rebuildPath: true
       - url: http://localhost:8080/produtos/saudaveis
-        name: New Request
+        name: Listar Saudaveis
         meta:
           id: req_8c0e13b1434d4397aeb119baa700fc88
           created: 1781101915613
-          modified: 1781104649233
+          modified: 1781112499137
           isPrivate: false
           description: ""
-          sortKey: -1781101915613
+          sortKey: -1779924858889.5
         method: GET
         headers:
           - name: User-Agent
@@ -455,7 +452,7 @@ collection:
         meta:
           id: req_1f71d1989bb04fd7afe89f7ec88bca74
           created: 1780939352937
-          modified: 1780943525396
+          modified: 1781110855327
           isPrivate: false
           description: ""
           sortKey: -1779988170119
@@ -464,11 +461,14 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"id" : 1,
-            	"nome" : "Administrador do Sistema",
-            	"usuario" : "admin@email.com.br",
-            	"senha" : "admin123",
-            	"foto" : "https://i.imgur.com/Tk9f10K.png"
+              "id": 1,
+              "nome": "Administrador do Sistema",
+              "usuario": "admin@email.com.br",
+              "senha": "admin123",
+              "email": "admin@email.com.br",
+              "endereco": "Rua Exemplo, 100",
+              "tipo": "FUNCIONARIO",
+              "foto": "https://i.imgur.com/Tk9f10K.png"
             }
         headers:
           - name: Content-Type
@@ -479,7 +479,7 @@ collection:
             disabled: false
           - name: Authorization
             value: Bearer
-              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJyb290QHJvb3QuY29tLmJyIiwiaWF0IjoxNzgwOTQxNzAwLCJleHAiOjE3ODA5NDUzMDB9.-3lYTxocXxGjJLNxB1XlOIz77sXuPojBAdMDnXxVbHeix2SKRGzVsPUBnQebh9tj
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsImlhdCI6MTc4MTEwOTQzMywiZXhwIjoxNzgxMTEzMDMzfQ.UJJ3XjTa9Ic4l1dZuCnD-yqm6h6Mpz9cpQ_QBvezxQJWPd7g1mFO1NX0wRxkaI5E
             description: ""
             disabled: false
         settings:
@@ -587,7 +587,7 @@ collection:
         meta:
           id: req_bc290edb4a03454ba04372aea5970b3c
           created: 1780939352937
-          modified: 1780942107767
+          modified: 1781110518443
           isPrivate: false
           description: ""
           sortKey: -1779988307094
@@ -599,7 +599,7 @@ collection:
             disabled: false
           - name: Authorization
             value: Bearer
-              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJyb290QHJvb3QuY29tLmJyIiwiaWF0IjoxNzgwOTQxNzAwLCJleHAiOjE3ODA5NDUzMDB9.-3lYTxocXxGjJLNxB1XlOIz77sXuPojBAdMDnXxVbHeix2SKRGzVsPUBnQebh9tj
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsImlhdCI6MTc4MTEwOTQzMywiZXhwIjoxNzgxMTEzMDMzfQ.UJJ3XjTa9Ic4l1dZuCnD-yqm6h6Mpz9cpQ_QBvezxQJWPd7g1mFO1NX0wRxkaI5E
             description: ""
             disabled: false
         settings:
