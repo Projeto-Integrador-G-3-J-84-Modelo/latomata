@@ -1,7 +1,11 @@
 package com.generation.projeto_integrador.model;
 
 import java.util.List;
+import java.util.Objects;
 
+import org.springframework.lang.NonNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
@@ -37,6 +41,7 @@ public class Usuario {
 
 	@NotBlank(message = "O Atributo Senha é Obrigatório!")
 	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
+	@JsonIgnore
 	private String senha;
 
 	@NotBlank(message = "O Atributo Tipo é Obrigatório!")
@@ -50,12 +55,13 @@ public class Usuario {
 	@JsonIgnoreProperties(value = "usuario", allowSetters = true)
 	private List<Produto> produto;
 
+	@NonNull
 	public Long getId() {
-		return id;
+		return Objects.requireNonNull(id, "id");
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(@NonNull Long id) {
+		this.id = Objects.requireNonNull(id, "id");
 	}
 
 	public String getNome() {

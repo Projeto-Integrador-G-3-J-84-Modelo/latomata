@@ -1,8 +1,10 @@
 package com.generation.projeto_integrador.security;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.generation.projeto_integrador.model.Usuario;
@@ -15,16 +17,17 @@ public class UserDetailsImpl implements UserDetails {
 
 	private String username;
 	private String password;
+	private String tipo;
 
 	public UserDetailsImpl(Usuario user) {
 		this.username = user.getEmail();
 		this.password = user.getSenha();
+		this.tipo = user.getTipo();
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-
-		return Collections.emptyList();  
+		return List.of(new SimpleGrantedAuthority("ROLE_" + this.tipo.toUpperCase()));
 	}
 
 	@Override
@@ -58,5 +61,5 @@ public class UserDetailsImpl implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-
+	
 }

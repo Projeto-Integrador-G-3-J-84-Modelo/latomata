@@ -1,13 +1,19 @@
 package com.generation.projeto_integrador.model;
 
 import java.math.BigDecimal;
+import java.util.Objects;
+
+import org.springframework.lang.NonNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -37,20 +43,25 @@ public class Produto {
 	@Size(max = 200)
 	private String descricao;
 	
+	@NotNull(message = "O atributo saudável é obrigatório")
+	private Boolean saudavel;
+	
 	@ManyToOne
 	@JsonIgnoreProperties(value = "produto", allowSetters = true)
 	private Categoria categoria;
 
 	@ManyToOne
 	@JsonIgnoreProperties(value = "produto", allowSetters = true)
+	@JsonIgnore
 	private Usuario usuario;
 
+	@NonNull
 	public Long getId() {
-		return id;
+		return Objects.requireNonNull(id, "id");
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(@NonNull Long id) {
+		this.id = Objects.requireNonNull(id, "id");
 	}
 
 	public String getNome() {
@@ -91,6 +102,14 @@ public class Produto {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	
+	public Boolean getSaudavel() {
+		return saudavel;
+	}
+
+	public void setSaudavel(Boolean saudavel) {
+		this.saudavel = saudavel;
 	}
 
 	public Categoria getCategoria() {

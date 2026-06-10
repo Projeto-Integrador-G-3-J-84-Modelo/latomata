@@ -1,6 +1,9 @@
 package com.generation.projeto_integrador.model;
 
 import java.util.List;
+import java.util.Objects;
+
+import org.springframework.lang.NonNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -31,12 +34,13 @@ public class Categoria {
 	@JsonIgnoreProperties(value = "categoria", allowSetters = true)
 	private List<Produto> produto;
 
+	@NonNull
 	public Long getId() {
-		return id;
+		return Objects.requireNonNull(id, "id");
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(@NonNull Long id) {
+		this.id = Objects.requireNonNull(id, "id");
 	}
 
 	public String getDescricao() {

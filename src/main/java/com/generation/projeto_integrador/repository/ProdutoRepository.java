@@ -11,10 +11,12 @@ import com.generation.projeto_integrador.model.Produto;
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
-    // Método corrigido: Agora ele entra no objeto Categoria e busca pelo atributo "descricao"
-    public List<Produto> findAllByCategoriaDescricaoContainingIgnoreCase(@Param("descricao") String descricao);
+    public List<Produto> findAllByCategoriaDescricaoContainingIgnoreCase(String descricao);
 
-    // Buscar por nome.
-    public List<Produto> findAllByNomeContainingIgnoreCase(@Param("nome") String nome);
+    public List<Produto> findAllByNomeContainingIgnoreCase(String nome);
+    
+    public List<Produto> findAllBySaudavelTrue();
+    
+    public List<Produto> findBySaudavelTrueAndDisponivelTrue();
 
 }

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +38,7 @@ public class CategoriaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Categoria> getById(@PathVariable Long id) {
+    public ResponseEntity<Categoria> getById(@PathVariable @NonNull Long id) {
         return categoriaRepository.findById(id)
                 .map(resposta -> ResponseEntity.ok(resposta))
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
@@ -49,7 +50,7 @@ public class CategoriaController {
     }
 
     @PostMapping
-    public ResponseEntity<Categoria> post(@Valid @RequestBody Categoria categoria) {
+    public ResponseEntity<Categoria> post(@Valid @RequestBody @NonNull Categoria categoria) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(categoriaRepository.save(categoria));
     }
@@ -64,7 +65,7 @@ public class CategoriaController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable @NonNull Long id) {
         Optional<Categoria> categoria = categoriaRepository.findById(id);
 
         if (categoria.isEmpty())
