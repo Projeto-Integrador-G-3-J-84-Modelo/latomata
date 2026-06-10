@@ -20,8 +20,8 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotBlank(message = "Nome obrigatório")
-	@Size(min = 2, max = 100, message = "O Atributo nome deve ter no mínimo 3 caracteres e no máximo 100")
+	@NotBlank(message = "O nome do produto é obrigatório")
+	@Size(min = 3, max = 100, message = "O Atributo nome deve ter no mínimo 3 caracteres e no máximo 100")
 	private String nome;
 
 	@NotNull(message = "Preço obrigatório")
