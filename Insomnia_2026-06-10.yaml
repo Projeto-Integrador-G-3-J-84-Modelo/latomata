@@ -1,0 +1,625 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Latomata
+meta:
+  id: wrk_e9b5f9ff011c42cfbbabf0b5546729d3
+  created: 1781101857700
+  modified: 1781101857700
+  description: ""
+collection:
+  - name: Categoria
+    meta:
+      id: fld_f22f5d173aaf4ee696f4c13553561fec
+      created: 1779920812195
+      modified: 1779920812195
+      sortKey: -1779920812195
+      description: ""
+    children:
+      - url: http://localhost:8080/categorias
+        name: Cadastrar Categoria
+        meta:
+          id: req_b7704541ddc54a428e84b38edad6bdff
+          created: 1779922403173
+          modified: 1781102449347
+          isPrivate: false
+          description: ""
+          sortKey: -1779925677470
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "descricao": "Alimentos Saudáveis"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsImlhdCI6MTc4MTEwMjQwOCwiZXhwIjoxNzgxMTA2MDA4fQ.jI_hbt0OBchArRdNBDTkYQO6FsNkFXeQjkosoACK1C_RNwrw5oZslHMv73Aybgyf
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/categorias
+        name: Listar Todas Categoria
+        meta:
+          id: req_f684a0c154b94717aae82149c4767f3c
+          created: 1779925670383
+          modified: 1780940374198
+          isPrivate: false
+          description: ""
+          sortKey: -1779924040309
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: ""
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/categorias/1
+        name: Listar Categoria por ID
+        meta:
+          id: req_f8449c44323d418ea23422daa0b12474
+          created: 1779925672476
+          modified: 1780940371587
+          isPrivate: false
+          description: ""
+          sortKey: -1779923221728.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: ""
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/categorias
+        name: Atualizar Categoria
+        meta:
+          id: req_5d474bf0706d4fcc9a4eab5baf94156f
+          created: 1779925676045
+          modified: 1781107724839
+          isPrivate: false
+          description: ""
+          sortKey: -1779922403023
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+              "descricao": "Alimentos Super Saudáveis"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJyb290QHJvb3QuY29tLmJyIiwiaWF0IjoxNzgwOTQxNzAwLCJleHAiOjE3ODA5NDUzMDB9.-3lYTxocXxGjJLNxB1XlOIz77sXuPojBAdMDnXxVbHeix2SKRGzVsPUBnQebh9tj
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/categorias/3
+        name: Deletar Categoria
+        meta:
+          id: req_4d2294ab55e845e8bd115b5f5a2bdb68
+          created: 1779925677370
+          modified: 1780941982341
+          isPrivate: false
+          description: ""
+          sortKey: -1779922402973
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJyb290QHJvb3QuY29tLmJyIiwiaWF0IjoxNzgwOTQxNzAwLCJleHAiOjE3ODA5NDUzMDB9.-3lYTxocXxGjJLNxB1XlOIz77sXuPojBAdMDnXxVbHeix2SKRGzVsPUBnQebh9tj
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Produto
+    meta:
+      id: fld_5a251270ef2640bfb4486a5313b935f5
+      created: 1780929744363
+      modified: 1780929744363
+      sortKey: -1779920808979.5
+      description: ""
+    children:
+      - url: http://localhost:8080/produtos/4
+        name: Deletar Produto
+        meta:
+          id: req_736b3154bc2a4d0aad537c71fe8733ae
+          created: 1780929744363
+          modified: 1780942088916
+          isPrivate: false
+          description: ""
+          sortKey: -1779922402973
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJyb290QHJvb3QuY29tLmJyIiwiaWF0IjoxNzgwOTQxNzAwLCJleHAiOjE3ODA5NDUzMDB9.-3lYTxocXxGjJLNxB1XlOIz77sXuPojBAdMDnXxVbHeix2SKRGzVsPUBnQebh9tj
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/produtos/1
+        name: Listar Produtos por ID
+        meta:
+          id: req_ac1974a3f4204af08777d87adc5e2867
+          created: 1780929744363
+          modified: 1780940350047
+          isPrivate: false
+          description: ""
+          sortKey: -1779923221728.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: ""
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/produtos
+        name: Cadastrar Produto
+        meta:
+          id: req_c34fc609510e4b7ba9ed75b93e9e472c
+          created: 1780929744363
+          modified: 1781102473965
+          isPrivate: false
+          description: ""
+          sortKey: -1779925677470
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "nome": "Salada Tropical",
+              "preco": 25.50,
+              "disponivel": true,
+              "foto": "https://i.imgur.com/salada.jpg",
+              "descricao": "Mix de folhas, manga e molho especial",
+              "saudavel": true,
+              "categoria": {
+                "id": 1
+              },
+              "usuario": {
+                "id": 1
+              }
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsImlhdCI6MTc4MTEwMjQwOCwiZXhwIjoxNzgxMTA2MDA4fQ.jI_hbt0OBchArRdNBDTkYQO6FsNkFXeQjkosoACK1C_RNwrw5oZslHMv73Aybgyf
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/produtos
+        name: Atualizar Produto
+        meta:
+          id: req_c468b9e68203423d8aceb97e987b9293
+          created: 1780929744363
+          modified: 1781107776358
+          isPrivate: false
+          description: ""
+          sortKey: -1779922403023
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+              "nome": "Salada Tropical Fenomenal",
+              "preco": 26.50,
+              "disponivel": true,
+              "foto": "https://i.imgur.com/salada.jpg",
+              "descricao": "Mix de folhas, manga e molho especial Tropical",
+              "saudavel": true,
+              "categoria": {
+                "id": 1
+              },
+              "usuario": {
+                "id": 1
+              }
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJyb290QHJvb3QuY29tLmJyIiwiaWF0IjoxNzgwOTQxNzAwLCJleHAiOjE3ODA5NDUzMDB9.-3lYTxocXxGjJLNxB1XlOIz77sXuPojBAdMDnXxVbHeix2SKRGzVsPUBnQebh9tj
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/produtos
+        name: Listar Todos Produtos
+        meta:
+          id: req_f3ff58d6e04a4c7bb6be13685430de77
+          created: 1780929744363
+          modified: 1780940352027
+          isPrivate: false
+          description: ""
+          sortKey: -1779924040309
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: ""
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/produtos/nome/amoxicilina
+        name: Listar Produtos por Nome
+        meta:
+          id: req_7fadd1e58369407496999b7aec2b745b
+          created: 1780931182837
+          modified: 1780940345342
+          isPrivate: false
+          description: ""
+          sortKey: -1779922812450.75
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: ""
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/produtos/saudaveis
+        name: New Request
+        meta:
+          id: req_8c0e13b1434d4397aeb119baa700fc88
+          created: 1781101915613
+          modified: 1781104649233
+          isPrivate: false
+          description: ""
+          sortKey: -1781101915613
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authentication
+            value: Bearer
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsImlhdCI6MTc4MTEwMjQwOCwiZXhwIjoxNzgxMTA2MDA4fQ.jI_hbt0OBchArRdNBDTkYQO6FsNkFXeQjkosoACK1C_RNwrw5oZslHMv73Aybgyf
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Usuario
+    meta:
+      id: fld_64c37e0692664703aae8d4b68bfc85aa
+      created: 1780939352937
+      modified: 1780939352937
+      sortKey: -1000000000
+      description: ""
+    children:
+      - url: http://localhost:8080/usuarios/logar
+        name: Autenticar Usuario
+        meta:
+          id: req_07181be18fcc451298ceba7dc9b9b6c9
+          created: 1780939352937
+          modified: 1781102406725
+          isPrivate: false
+          description: ""
+          sortKey: -1780392559308
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "joao@email.com",
+              "senha": "senha123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/usuarios/atualizar
+        name: Atualizar Usuario
+        meta:
+          id: req_1f71d1989bb04fd7afe89f7ec88bca74
+          created: 1780939352937
+          modified: 1780943525396
+          isPrivate: false
+          description: ""
+          sortKey: -1779988170119
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id" : 1,
+            	"nome" : "Administrador do Sistema",
+            	"usuario" : "admin@email.com.br",
+            	"senha" : "admin123",
+            	"foto" : "https://i.imgur.com/Tk9f10K.png"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJyb290QHJvb3QuY29tLmJyIiwiaWF0IjoxNzgwOTQxNzAwLCJleHAiOjE3ODA5NDUzMDB9.-3lYTxocXxGjJLNxB1XlOIz77sXuPojBAdMDnXxVbHeix2SKRGzVsPUBnQebh9tj
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/usuarios/cadastrar
+        name: Cadastrar Usuario
+        meta:
+          id: req_22797934dfee4b529130951b57633aef
+          created: 1780939352937
+          modified: 1781102394056
+          isPrivate: false
+          description: ""
+          sortKey: -1780796811522
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            "nome": "João Silva",
+              "email": "joao@email.com",
+              "senha": "senha123456",
+              "foto": "https://i.imgur.com/foto.jpg",
+              "tipo": "FUNCIONARIO",
+              "endereco": "Rua das Flores, 123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/usuarios/1
+        name: Deletar Usuario
+        meta:
+          id: req_8d814d69ebf2430697920da3bf06db4a
+          created: 1780939352937
+          modified: 1780942165904
+          isPrivate: false
+          description: ""
+          sortKey: -1779988170069
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJyb290QHJvb3QuY29tLmJyIiwiaWF0IjoxNzgwOTQyMTUwLCJleHAiOjE3ODA5NDU3NTB9.HvSHwCk9am3QlOYH1DbF3kzEZssVcvRGs1RC7BVWjIRPDdkBRhm-JkuE1ZVSLaQX
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/usuarios/all
+        name: Consultar todos os Usuarios
+        meta:
+          id: req_9e97b9fa01ce4c27be56a26ed9044b56
+          created: 1780939352937
+          modified: 1780942105145
+          isPrivate: false
+          description: ""
+          sortKey: -1780190433201
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJyb290QHJvb3QuY29tLmJyIiwiaWF0IjoxNzgwOTQxNzAwLCJleHAiOjE3ODA5NDUzMDB9.-3lYTxocXxGjJLNxB1XlOIz77sXuPojBAdMDnXxVbHeix2SKRGzVsPUBnQebh9tj
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/usuarios/1
+        name: Consultar Usuario por ID
+        meta:
+          id: req_bc290edb4a03454ba04372aea5970b3c
+          created: 1780939352937
+          modified: 1780942107767
+          isPrivate: false
+          description: ""
+          sortKey: -1779988307094
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJyb290QHJvb3QuY29tLmJyIiwiaWF0IjoxNzgwOTQxNzAwLCJleHAiOjE3ODA5NDUzMDB9.-3lYTxocXxGjJLNxB1XlOIz77sXuPojBAdMDnXxVbHeix2SKRGzVsPUBnQebh9tj
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_596b727b95df4178a1dd150baa8895d8
+    created: 1779920774010
+    modified: 1779920774010
+environments:
+  name: Base Environment
+  meta:
+    id: env_16ee76b3b53f42e5967b4dac7664b67c
+    created: 1779920774008
+    modified: 1779920774008
+    isPrivate: false
