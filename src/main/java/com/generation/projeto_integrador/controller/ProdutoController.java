@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.generation.projeto_integrador.model.Categoria;
 import com.generation.projeto_integrador.model.Produto;
 import com.generation.projeto_integrador.repository.CategoriaRepository;
 import com.generation.projeto_integrador.repository.ProdutoRepository;
@@ -71,28 +72,33 @@ public class ProdutoController {
         );
     }
 
-    // Método POST com validação de Categoria
-    @PostMapping
+    @PostMapping("/cadastrar")
     public ResponseEntity<Produto> post(@Valid @RequestBody Produto produto) {
-        if (categoriaRepository.existsById(produto.getCategoria().getId())) {
-            return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(produtoRepository.save(produto));
-        }
-            
-        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!", null);
+
+        Categoria categoria = categoriaRepository.findById(produto.getCategoria().getId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!"));
+
+
+        produto.setCategoria(categoria);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(produtoRepository.save(produto));
     }
 
-    // Método PUT com validação de Produto e de Categoria
-    @PutMapping
+
+    @PutMapping("/atualizar")
     public ResponseEntity<Produto> put(@Valid @RequestBody Produto produto) {
         if (produtoRepository.existsById(produto.getId())) {
             
-            if (categoriaRepository.existsById(produto.getCategoria().getId())) {
-                return ResponseEntity.status(HttpStatus.OK)
-                        .body(produtoRepository.save(produto));
-            }
+
+            Categoria categoria = categoriaRepository.findById(produto.getCategoria().getId())
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!"));
             
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!", null);
+
+            produto.setCategoria(categoria);
+
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(produtoRepository.save(produto));
         }
         
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
