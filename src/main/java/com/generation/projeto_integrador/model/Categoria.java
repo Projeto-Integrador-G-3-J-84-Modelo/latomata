@@ -34,13 +34,13 @@ public class Categoria {
 	@JsonIgnoreProperties(value = "categoria", allowSetters = true)
 	private List<Produto> produto;
 
-	@NonNull
+	
 	public Long getId() {
-		return Objects.requireNonNull(id, "id");
+		return id;
 	}
 
-	public void setId(@NonNull Long id) {
-		this.id = Objects.requireNonNull(id, "id");
+	public void setId(Long id) {
+		this.id =id;
 	}
 
 	public String getDescricao() {
