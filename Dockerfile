@@ -7,7 +7,7 @@ COPY mvnw pom.xml ./
 COPY src src
 
 RUN chmod +x ./mvnw
-RUN ./mvnw install -DskipTests
+RUN ./mvnw install -Dmaven.test.skip=true
 
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
