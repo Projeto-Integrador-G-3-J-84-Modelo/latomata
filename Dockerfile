@@ -18,4 +18,4 @@ COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
 COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
 
-ENTRYPOINT ["java","-cp","app:app/lib/*","com.generation.projeto_final_bloco_02.ProjetoIntegrador03Application"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.generation.projeto_integrador.ProjetoIntegradorApplication"]
