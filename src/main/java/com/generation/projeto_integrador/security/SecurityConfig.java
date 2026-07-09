@@ -24,7 +24,7 @@ public class SecurityConfig {
 	        "/usuarios/logar",
 	        "/usuarios/cadastrar",
 	        "/error/**",
-	        "/"
+	        "/", "/docs", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**"
 	        };
 	
 	private static final String[] PUBLIC_GET_ENDPOINTS = {
@@ -39,7 +39,7 @@ public class SecurityConfig {
     private JwtAuthFilter jwtAuthFilter;
 	
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(10);
     }
 	
