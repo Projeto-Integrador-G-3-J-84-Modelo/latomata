@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk AS build
+FROM eclipse-temurin:21-jdk-alpine
 
 WORKDIR /workspace/app
 
@@ -13,7 +13,7 @@ RUN ./mvnw install -DskipTests
 
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
-FROM eclipse-temurin:17-jdk
+FROM openjdk:21-slim
 
 VOLUME /tmp
 
