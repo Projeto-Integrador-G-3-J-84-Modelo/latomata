@@ -1,22 +1,17 @@
-FROM eclipse-temurin:21-jdk AS build
 
+FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /workspace/app
 
-COPY mvnw .
 COPY .mvn .mvn
-COPY pom.xml .
+COPY mvnw pom.xml ./
 COPY src src
 
-RUN chmod -R 777 ./mvnw
-
+RUN chmod +x ./mvnw
 RUN ./mvnw install -DskipTests
 
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
-FROM eclipse-temurin:21-jdk
-
-VOLUME /tmp
-
+FROM eclipse-temurin:21-jre-alpine
 ARG DEPENDENCY=/workspace/app/target/dependency
 
 COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
